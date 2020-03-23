@@ -2,7 +2,7 @@
   "name": "chonky",
   "version": "0.3.0",
   "description": "React file browser component",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
@@ -78,7 +78,7 @@
     "react": "^16.8.6",
     "react-docgen-typescript": "^1.12.5",
     "react-dom": "^16.8.6",
-    "react-styleguidist": "^9.2.0",
+    "react-styleguidist": "^11.0.4",
     "sharp": "^0.23.0",
     "sinon": "^7.4.1",
     "style-loader": "^1.0.0",

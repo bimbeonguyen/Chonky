@@ -447,14 +447,14 @@ export default class FileBrowser extends React.Component<
     const { onSort } = this.props;
     this.setState(prevState => {
       if (prevState.sortProperty !== name) {
-        onSort({ sortProperty: name, sortOrder: SortOrder.Asc });
+        onSort(name, SortOrder.Asc);
         return { sortProperty: name, sortOrder: SortOrder.Asc };
       } else {
         const sortOrder =
           prevState.sortOrder === SortOrder.Asc
             ? SortOrder.Desc
             : SortOrder.Asc;
-        onSort({ sortProperty: name, sortOrder });
+        onSort(name, sortOrder);
         return { sortProperty: name, sortOrder };
       }
     });
