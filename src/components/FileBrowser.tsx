@@ -183,6 +183,7 @@ export interface FileBrowserProps {
    * Map of default icons
    */
   icons: Partial<typeof defaultIcons>;
+  onSort: (sortProperty: SortProperty, sortOrder: SortOrder) => void;
 }
 
 interface FileBrowserState {
@@ -207,7 +208,7 @@ interface FileBrowserState {
 export default class FileBrowser extends React.Component<
   FileBrowserProps,
   FileBrowserState
-> {
+  > {
   public static defaultProps: Partial<FileBrowserProps> = {
     onFolderCreate: undefined,
     onUploadClick: undefined,
@@ -443,14 +444,17 @@ export default class FileBrowser extends React.Component<
   };
 
   protected activateSortProperty = (name: SortProperty) => {
+    const { onSort } = this.props;
     this.setState(prevState => {
       if (prevState.sortProperty !== name) {
+        onSort({ sortProperty: name, sortOrder: SortOrder.Asc });
         return { sortProperty: name, sortOrder: SortOrder.Asc };
       } else {
         const sortOrder =
           prevState.sortOrder === SortOrder.Asc
             ? SortOrder.Desc
             : SortOrder.Asc;
+        onSort({ sortProperty: name, sortOrder });
         return { sortProperty: name, sortOrder };
       }
     });
