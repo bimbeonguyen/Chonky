@@ -2,7 +2,7 @@
   "name": "chonky",
   "version": "0.3.0",
   "description": "React file browser component",
-  "main": "lib/index.js",
+  "main": "src/index.ts",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
