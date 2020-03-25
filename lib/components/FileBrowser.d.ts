@@ -123,6 +123,7 @@ export interface FileBrowserProps {
      */
     icons: Partial<typeof defaultIcons>;
     onSort: (sortProperty: SortProperty, sortOrder: SortOrder) => void;
+    AdditionalAction?: React.ReactElement;
 }
 interface FileBrowserState {
     rawFiles: FileArray;

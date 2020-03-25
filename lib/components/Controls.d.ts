@@ -23,6 +23,7 @@ interface ControlsProps {
     sortProperty: string | ((file: FileData) => any);
     sortOrder: SortOrder;
     activateSortProperty: (name: string | ((file: FileData) => any)) => void;
+    AdditionalAction?: React.ReactElement;
 }
 interface ControlsState {
 }
