@@ -184,6 +184,7 @@ export interface FileBrowserProps {
    */
   icons: Partial<typeof defaultIcons>;
   onSort: (sortProperty: SortProperty, sortOrder: SortOrder) => void;
+  AdditionalAction?: React.ReactElement,
 }
 
 interface FileBrowserState {
@@ -773,6 +774,7 @@ export default class FileBrowser extends React.Component<
       fillParentContainer,
       Icon = DefaultIcon,
       icons = {},
+      AdditionalAction,
     } = this.props;
     const {
       folderChain,
@@ -810,6 +812,7 @@ export default class FileBrowser extends React.Component<
             activateSortProperty={this.activateSortProperty}
             sortProperty={sortProperty}
             sortOrder={sortOrder}
+            AdditionalAction={AdditionalAction}
           />
           <FileList
             files={sortedFiles}

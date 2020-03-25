@@ -53,6 +53,7 @@ interface ControlsProps {
   sortProperty: string | ((file: FileData) => any);
   sortOrder: SortOrder;
   activateSortProperty: (name: string | ((file: FileData) => any)) => void;
+  AdditionalAction?: React.ReactElement,
 }
 
 interface ControlsState {}
@@ -271,7 +272,7 @@ export default class Controls extends React.PureComponent<
   }
 
   public render() {
-    const { folderChain, onFileOpen } = this.props;
+    const { folderChain, onFileOpen, AdditionalAction, selection } = this.props;
     const { icons } = this.context;
     const parentDirButtonProps: any = {};
     if (isFunction(onFileOpen)) {
@@ -289,6 +290,13 @@ export default class Controls extends React.PureComponent<
           {this.renderFolderChain()}
         </div>
         <div className="chonky-side chonky-side-right">
+          {
+            AdditionalAction && selection && (
+              <div className="chonky-side-inside chonky-side-inside-left">
+                {AdditionalAction}
+              </div>
+            )
+          }
           <div className="chonky-side-inside chonky-side-inside-left">
             {this.renderActionButtons()}
           </div>
