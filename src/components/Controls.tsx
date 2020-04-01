@@ -291,7 +291,7 @@ export default class Controls extends React.PureComponent<
         </div>
         <div className="chonky-side chonky-side-right">
           {
-            AdditionalAction && selection && (
+            AdditionalAction && Object.keys(selection).length > 0 && (
               <div className="chonky-side-inside chonky-side-inside-left">
                 {AdditionalAction}
               </div>
